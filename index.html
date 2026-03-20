@@ -64,6 +64,91 @@
         </div>
     </div>
 
+        <!-- Container -->
+    <div class="container mx-auto px-4 md:px-0 max-w-[1110px]">
+        <!-- Tab bar -->
+        <div class="mx-auto mt-6 w-full max-w-[1110px] rounded-xl border border-gray-100 bg-white shadow-sm">
+
+            <div class="flex h-[88px] w-full items-center px-6 overflow-x-auto no-scrollbar">
+
+                <div class="flex gap-3">
+
+                    <button id="btn-all"
+                        class="btn border-gray-200 bg-white hover:bg-gray-50 text-gray-600 min-w-[100px] font-medium capitalize">
+                        All
+                    </button>
+
+                    <button id="btn-open"
+                        class="btn border-gray-200 bg-white hover:bg-gray-50 text-gray-600 min-w-[100px] font-medium capitalize">
+                        Open
+                    </button>
+
+                    <button id="btn-closed"
+                        class="btn border-gray-200 bg-white hover:bg-gray-50 text-gray-600 min-w-[100px] font-medium capitalize">
+                        Closed
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Issues bar -->
+        <div class="mt-4 flex items-center justify-between p-4 bg-white border-b border-gray-200 rounded-xl">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                    <!-- This is a placeholder for the icon. You would replace this with an actual SVG icon. -->
+                    <img src="./assets/Aperture.png" alt="">
+                </div>
+                <div>
+                    <h2 id="issue-count" class="text-lg font-semibold text-gray-800">50 Issues</h2>
+                    <p class="text-sm text-gray-500">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 text-sm">
+                <div class="flex items-center">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                    <span class="text-gray-700">Open</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                    <span class="text-gray-700">Closed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container bg[#FBFBFB] shadow-sm">
+
+            <div class="p-6 bg-slate-50 min-h-screen pt-6">
+
+                <!-- Loading spinner -->
+                <div id="loading-spinner" class="hidden flex justify-center items-center py-20">
+                    <span class="loading loading-spinner loading-lg text-primary"></span>
+                </div>
+
+                <!-- Card  -->
+                <div id="issue-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                    <!-- Card section -->
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- Modal section -->
+        <input type="checkbox" id="issue-modal" class="modal-toggle" />
+        <div class="modal" role="dialog">
+            <div class="modal-box max-w-2xl bg-white p-0 overflow-hidden" id="modal-content">
+            </div>
+            <label class="modal-backdrop" for="issue-modal">Close</label>
+        </div>
+
+    </div>
 
 
 <!-- Script file -->
