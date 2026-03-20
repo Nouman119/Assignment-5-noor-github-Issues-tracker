@@ -8,7 +8,7 @@ const handleLogin = () => {
     const password = passwordField.value.trim();
     
     if (username === 'admin' && password === 'admin123') {
-        window.location.href = 'index.html'; 
+        window.location.href = 'home.html'; 
     } else {
         alert('Wrong username or password! Please try again.');
        
