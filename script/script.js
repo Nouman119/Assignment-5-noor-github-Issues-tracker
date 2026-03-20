@@ -149,3 +149,37 @@ const setupSearch = () => {
     if(btn) btn.onclick = doSearch;
     input?.addEventListener("keypress", (e) => e.key === 'Enter' && doSearch());
 };
+
+// Modal logic
+
+
+const openIssueModal = async (id) => {
+    const modalContent = document.getElementById('modal-content');
+    try {
+        const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
+        const data = await res.json();
+        const issue = data.data || data;
+
+        modalContent.innerHTML = `
+            <div class="p-8">
+                <h2 class="text-2xl font-bold mb-2">${issue.title}</h2>
+                <div class="flex gap-3 text-sm text-gray-500 mb-6">
+                    <span class="px-3 py-1 bg-green-500 text-white rounded-full text-xs">${issue.status}</span>
+                    <span>By <b>${issue.author}</b></span>
+                </div>
+                <p class="text-gray-600 mb-8">${issue.description}</p>
+                <div class="bg-gray-50 p-6 rounded-xl flex justify-between">
+                    <div><p class="text-xs text-gray-400">Assignee</p><b class="capitalize">${issue.assignee?.replace(/_/g, ' ') || 'N/A'}</b></div>
+                    <div class="text-right"><p class="text-xs text-gray-400">Priority</p><span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">${issue.priority}</span></div>
+                </div>
+                <div class="modal-action mt-6"><label for="issue-modal" class="btn bg-[#4f00ff] text-white border-none">Close</label></div>
+            </div>`;
+        document.getElementById('issue-modal').checked = true;
+    } catch (err) { console.error(err); }
+};
+
+// Call all function
+
+fetchIssues();
+setupFilter();
+setupSearch();
